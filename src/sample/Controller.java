@@ -3,7 +3,6 @@ package sample;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonWriter;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,47 +13,60 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-import javafx.stage.Window;
-import javafx.stage.WindowEvent;
-import org.apache.commons.io.FileUtils;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
-public class Controller {
-    int listIndex = 0;
-    @FXML
-    private Button quitButton, setTextButton, saveButton, loadButton, newTaskButton, newLabelButton;
 
-    @FXML
-    private Pane deleteTask;
+public class Controller{
 
-    @FXML
-    private AnchorPane mainPane;
+    @FXML private Button saveButton, loadButton, newTaskButton;
 
-    @FXML
-    private TextField taskTextField, newTaskTextField;
+    @FXML private Pane deleteTask;
+
+    @FXML private AnchorPane mainPane;
+
 
     @FXML private VBox monVBox, tuesVBox, wedVBox, thurVBox, friVBox, saturVBox, sunVBox;
 
-    @FXML
-    private ArrayList<Label> allTasksList = new ArrayList<>();
-
+    @FXML private final ArrayList<Label> allTasksList = new ArrayList<>();
 
     private Stage stage;
     private Parent root;
 
+    private final int labelWidth = 150;
+    private final int labelHeight = 150;
+
     DataSave dataSave = DataSave.getInstance();
-    int labelWidth = 150;
-    int labelHeight = 150;
 
     private boolean unSavedChanges;
+    private static final String BUTTON_STYLE = "-fx-background-color: lightgreen; -fx-background-radius: 5;";
+    private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: rgb(144, 255, 144);";
+
+    public void initialize() {
+        load();
+        buttonStyling();
+    }
+
+    public void buttonStyling() {
+        newTaskButton.setStyle(BUTTON_STYLE);
+        newTaskButton.setOnMouseEntered(event -> newTaskButton.setStyle(HOVERED_BUTTON_STYLE));
+        newTaskButton.setOnMouseExited(event -> newTaskButton.setStyle(BUTTON_STYLE));
+
+        saveButton.setStyle(BUTTON_STYLE);
+        saveButton.setOnMouseEntered(event -> saveButton.setStyle(HOVERED_BUTTON_STYLE));
+        saveButton.setOnMouseExited(event -> saveButton.setStyle(BUTTON_STYLE));
+
+        loadButton.setStyle(BUTTON_STYLE);
+        loadButton.setOnMouseEntered(event -> loadButton.setStyle(HOVERED_BUTTON_STYLE));
+        loadButton.setOnMouseExited(event -> loadButton.setStyle(BUTTON_STYLE));
+
+    }
+
+
 
 
 
@@ -63,8 +75,9 @@ public class Controller {
         unSavedChanges = true;
         if (monVBox.getChildren().size() <= 17) {
             try {
-                stage = new Stage();
                 root = FXMLLoader.load(getClass().getResource("newTaskPopup.fxml"));
+                stage = new Stage();
+
                 stage.setScene(new Scene(root));
                 stage.initModality(Modality.APPLICATION_MODAL);
                 stage.initOwner(monVBox.getScene().getWindow());
@@ -90,30 +103,6 @@ public class Controller {
         }
     }
 
-    public void setNewButton() {
-        Label label = new Label();
-
-
-        if (!newTaskTextField.getText().equals("")) {
-            label.setText(newTaskTextField.getText());
-        }else
-            label.setText("New task");
-
-
-        dataSave.setSavedLabel(label);
-
-        stage = (Stage) newLabelButton.getScene().getWindow();
-        stage.close();
-
-    }
-
-    public void popupDeleteTask() {
-        dataSave.setDeleted(true);
-
-        stage = (Stage) taskTextField.getScene().getWindow();
-        stage.close();
-
-    }
 
 
 
@@ -134,8 +123,7 @@ public class Controller {
             if (e.isPrimaryButtonDown()) {
                 double currentX;
                 double currentY;
-                if (mainPane.getChildren().contains(label)) {
-                }else {
+                if (!mainPane.getChildren().contains(label)) {
                     dataSave.setSavedLastParent((VBox)label.getParent());
                     currentX = label.localToScene(label.getBoundsInLocal()).getMinX();
                     currentY = label.localToScene(label.getBoundsInLocal()).getMinY();
@@ -244,15 +232,6 @@ public class Controller {
     }
 
 
-    public void setButtonText (){
-        Label currentNode = dataSave.getSavedLabel();
-        if (!taskTextField.getText().equals("")) {
-            currentNode.setText(taskTextField.getText());
-        }
-
-        stage = (Stage) taskTextField.getScene().getWindow();
-        stage.close();
-    }
 
 
 

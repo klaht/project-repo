@@ -11,9 +11,15 @@
 
 <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: rgb(30, 140, 218);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Button fx:id="saveButton" layoutX="744.0" layoutY="504.0" mnemonicParsing="false" onAction="#save" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: lightgreen;" text="Save" />
-      <Button fx:id="loadButton" layoutX="744.0" layoutY="544.0" mnemonicParsing="false" onAction="#load" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: lightgreen;" text="Load" />
-      <Button fx:id="newTaskButton" layoutX="43.0" layoutY="503.0" mnemonicParsing="false" onAction="#newTask" prefHeight="73.0" prefWidth="221.0" snapToPixel="false" style="fx-border-color: green; -fx-background-color: lightgreen; -fx-background-radius: 5;" text="Set new task">
+      <Button fx:id="saveButton" layoutX="744.0" layoutY="504.0" mnemonicParsing="false" onAction="#save" prefHeight="32.0" prefWidth="100.0" text="Save">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="loadButton" layoutX="744.0" layoutY="544.0" mnemonicParsing="false" onAction="#load" prefHeight="32.0" prefWidth="100.0" text="Load">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="newTaskButton" layoutX="43.0" layoutY="503.0" mnemonicParsing="false" onAction="#newTask" prefHeight="73.0" prefWidth="221.0" snapToPixel="false" text="Set new task">
          <font>
             <Font size="22.0" />
          </font></Button>
@@ -32,12 +38,33 @@
       <VBox fx:id="friVBox" layoutX="511.0" layoutY="87.0" prefHeight="396.0" prefWidth="100.0" style="-fx-background-color: rgb(30, 186, 218); -fx-background-radius: 5;" />
       <VBox fx:id="saturVBox" layoutX="628.0" layoutY="87.0" prefHeight="396.0" prefWidth="100.0" style="-fx-background-color: rgb(30, 186, 218); -fx-background-radius: 5;" />
       <VBox fx:id="sunVBox" layoutX="744.33" layoutY="87.0" prefHeight="396.0" prefWidth="100.0" style="-fx-background-color: rgb(30, 186, 218); -fx-background-radius: 5;" />
-      <Label layoutX="71.0" layoutY="53.0" prefHeight="17.0" prefWidth="49.0" text="Monday" />
-      <Label layoutX="190.0" layoutY="53.0" text="Tuesday" />
-      <Label layoutX="297.0" layoutY="53.0" text="Wednesday" />
-      <Label layoutX="421.0" layoutY="53.0" text="Thursday" />
-      <Label layoutX="545.0" layoutY="53.0" text="Friday" />
-      <Label layoutX="655.0" layoutY="53.0" text="Saturday" />
-      <Label layoutX="775.0" layoutY="53.0" text="Sunday" />
+      <Label layoutX="57.0" layoutY="53.0" prefHeight="28.0" prefWidth="77.0" text="Monday">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Label layoutX="178.0" layoutY="53.0" text="Tuesday">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Label layoutX="279.0" layoutY="53.0" text="Wednesday">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Label layoutX="407.0" layoutY="53.0" text="Thursday">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Label layoutX="536.0" layoutY="53.0" text="Friday">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Label layoutX="641.0" layoutY="53.0" text="Saturday">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Label layoutX="763.0" layoutY="53.0" text="Sunday">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
    </children>
 </AnchorPane>
