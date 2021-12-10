@@ -1,21 +1,20 @@
 package sample;
 
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-public class DataSave {
+public class DataSave { // singleton class that holds temporary data
 
     private Label savedLabel;
     private VBox savedLastParent;
     private boolean deleted;
 
+    private final static DataSave INSTANCE = new DataSave();
 
     public Label getSavedLabel() {
         return savedLabel;
     }
 
-    private final static DataSave INSTANCE = new DataSave();
 
     public static DataSave getInstance() {
         return INSTANCE;

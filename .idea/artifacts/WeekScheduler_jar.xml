@@ -1,8 +1,11 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="BreakReminder:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/BreakReminder_jar</output-path>
-    <root id="archive" name="BreakReminder.jar">
+  <artifact type="jar" name="WeekScheduler:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/WeekScheduler_jar</output-path>
+    <root id="archive" name="WeekScheduler.jar">
       <element id="module-output" name="WeekScheduler" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/gson-2.8.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/commons-io-2.11.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/FXTrayIcon-3.0.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/src.zip" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx-swt.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.web.jar" path-in-jar="/" />

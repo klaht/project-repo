@@ -63,7 +63,6 @@ public class Controller{
         loadButton.setStyle(BUTTON_STYLE);
         loadButton.setOnMouseEntered(event -> loadButton.setStyle(HOVERED_BUTTON_STYLE));
         loadButton.setOnMouseExited(event -> loadButton.setStyle(BUTTON_STYLE));
-
     }
 
 
@@ -158,12 +157,12 @@ public class Controller{
             }
         });
 
-
-
         label.addEventHandler(MouseEvent.MOUSE_RELEASED, e-> {
             double currentChildY;
             boolean lowest = true;
-            Pane currentHover = currentlyHovered(label);
+            System.out.println(e.getSceneX() + " - " + e.getSceneY());
+
+            Pane currentHover = currentlyHovered(e.getSceneX(), e.getSceneY());
 
 
             if (currentHover != null) {
@@ -203,27 +202,24 @@ public class Controller{
         });
     }
 
-    public Pane currentlyHovered(Node node) { // checks which VBox (weekday) parameter node is in
+    public Pane currentlyHovered(Double x, double y) { // checks which VBox (weekday) the coordinates x and y are in
 
-        double centerX = node.getLayoutX() + (labelWidth / 2);
-        double centerY = node.getLayoutY() + (labelHeight/2);
-
-        if (((centerX > deleteTask.getLayoutX() && centerX < deleteTask.getLayoutX() + deleteTask.getWidth())
-                && centerY >= deleteTask.getLayoutY() && centerY <= deleteTask.getLayoutY() + deleteTask.getHeight())) {
+        if (((x > deleteTask.getLayoutX() && x < deleteTask.getLayoutX() + deleteTask.getWidth())
+                && y >= deleteTask.getLayoutY())) {
             return deleteTask;
-        } else if (centerX > monVBox.getLayoutX() && centerX < monVBox.getLayoutX() + monVBox.getWidth()) {
+        } else if (x > monVBox.getLayoutX() && x < monVBox.getLayoutX() + monVBox.getWidth()) {
             return monVBox;
-        }else if (centerX > tuesVBox.getLayoutX() && centerX < tuesVBox.getLayoutX() + tuesVBox.getWidth()) {
+        }else if (x > tuesVBox.getLayoutX() && x < tuesVBox.getLayoutX() + tuesVBox.getWidth()) {
             return tuesVBox;
-        }else if (centerX > wedVBox.getLayoutX() && centerX < wedVBox.getLayoutX() + wedVBox.getWidth()){
+        }else if (x > wedVBox.getLayoutX() && x < wedVBox.getLayoutX() + wedVBox.getWidth()){
             return wedVBox;
-        }else if(centerX > thurVBox.getLayoutX() && centerX < thurVBox.getLayoutX() + thurVBox.getWidth()) {
+        }else if(x > thurVBox.getLayoutX() && x < thurVBox.getLayoutX() + thurVBox.getWidth()) {
             return thurVBox;
-        } else if (centerX > friVBox.getLayoutX() && centerX < friVBox.getLayoutX() + friVBox.getWidth()) {
+        } else if (x > friVBox.getLayoutX() && x < friVBox.getLayoutX() + friVBox.getWidth()) {
             return friVBox;
-        }else if (centerX > saturVBox.getLayoutX() && centerX < saturVBox.getLayoutX() + saturVBox.getWidth()) {
+        }else if (x > saturVBox.getLayoutX() && x < saturVBox.getLayoutX() + saturVBox.getWidth()) {
             return saturVBox;
-        }else if (centerX > sunVBox.getLayoutX() && centerX < sunVBox.getLayoutX() + sunVBox.getWidth()) {
+        }else if (x > sunVBox.getLayoutX() && x < sunVBox.getLayoutX() + sunVBox.getWidth()) {
             return sunVBox;
         }else{
             return monVBox;
