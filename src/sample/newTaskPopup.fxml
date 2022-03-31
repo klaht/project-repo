@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="95.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PopupController">
+<AnchorPane prefHeight="95.0" prefWidth="323.0" style="-fx-background-color: rgb(211,211,211);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PopupController">
    <children>
-      <Label layoutX="34.0" layoutY="45.0" prefHeight="17.0" prefWidth="172.0" text="Name:" />
-      <TextField fx:id="newTaskTextField" layoutX="77.0" layoutY="41.0" />
-      <Button fx:id="newLabelButton" defaultButton="true" layoutX="239.0" layoutY="41.0" mnemonicParsing="false" onAction="#setNewButton" text="Create" />
-      <Label layoutX="93.0" layoutY="14.0" prefHeight="17.0" prefWidth="185.0" text="Add a new task" />
+      <Label layoutX="37.0" layoutY="31.0" prefHeight="17.0" prefWidth="172.0" text="Name:" />
+      <TextField fx:id="newTaskTextField" layoutX="80.0" layoutY="27.0" style="-fx-border-color: rgb(0,0,0); -fx-border-radius: 4;" />
+      <Button fx:id="newLabelButton" defaultButton="true" layoutX="242.0" layoutY="27.0" mnemonicParsing="false" onAction="#setNewButton" onMouseEntered="#newButtonEntered" onMouseExited="#newButtonExited" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: rgb(148,148,148); -fx-background-radius: 4; -fx-border-color: rgb(0,0,0); -fx-border-radius: 4;" text="Create" textAlignment="CENTER" />
+      <Label layoutX="107.0" layoutY="7.0" prefHeight="17.0" prefWidth="185.0" text="Create a new task" />
+      <ComboBox fx:id="daySelect" layoutX="81.0" layoutY="62.0" prefWidth="150.0" promptText="Monday" style="-fx-border-color: rgb(0,0,0);" />
+      <Text layoutX="37.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Day:" wrappingWidth="34.326171875" />
    </children>
 </AnchorPane>

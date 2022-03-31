@@ -5,11 +5,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="95.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PopupController">
+<AnchorPane prefHeight="95.0" prefWidth="323.0" style="-fx-background-color: rgb(211,211,211);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PopupController">
    <children>
-      <Label layoutX="18.0" layoutY="27.0" prefHeight="17.0" prefWidth="172.0" text="Name task:" />
-      <TextField fx:id="taskTextField" layoutX="88.0" layoutY="23.0" />
-      <Button fx:id="setTextButton" defaultButton="true" layoutX="243.0" layoutY="23.0" mnemonicParsing="false" onAction="#setButtonText" text="Save task" />
-      <Button layoutX="243.0" layoutY="56.0" mnemonicParsing="false" onAction="#popupDeleteTask" prefHeight="25.0" prefWidth="66.0" text="Delete" />
+      <Label layoutX="39.0" layoutY="28.0" prefHeight="17.0" prefWidth="172.0" text="Name:" />
+      <TextField fx:id="taskTextField" layoutX="87.0" layoutY="23.0" prefHeight="27.0" prefWidth="150.0" style="-fx-border-color: rgb(0,0,0); -fx-border-radius: 4;" />
+      <Button fx:id="setTextButton" defaultButton="true" layoutX="243.0" layoutY="23.0" mnemonicParsing="false" onAction="#setButtonText" onMouseEntered="#saveButtonEntered" onMouseExited="#saveButtonExited" prefHeight="27.0" prefWidth="66.0" style="-fx-background-color: rgb(148,148,148); -fx-background-radius: 4; -fx-border-color: rgb(0,0,0); -fx-border-radius: 4;" text="Rename" />
+      <Button fx:id="deleteButton" layoutX="243.0" layoutY="54.0" mnemonicParsing="false" onAction="#popupDeleteTask" onMouseEntered="#deleteButtonEntered" onMouseExited="#deleteButtonExited" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: rgb(148,148,148); -fx-background-radius: 4; -fx-border-color: rgb(0,0,0); -fx-border-radius: 4;" text="Delete" />
    </children>
 </AnchorPane>
